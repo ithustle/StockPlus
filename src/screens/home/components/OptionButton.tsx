@@ -5,6 +5,7 @@ interface OptionButton {
     icon: ReactNode
     text: string
     color: string
+    onClick: () => void
 }
 
 export default function OptionButton(props: OptionButton): JSX.Element {
@@ -12,11 +13,15 @@ export default function OptionButton(props: OptionButton): JSX.Element {
     const {
         icon,
         text,
-        color
+        color,
+        onClick
     } = props
 
     return (
-        <HStack>
+        <HStack
+            onClick={onClick}
+            style={{ cursor: 'pointer' }}
+        >
             {icon}
             <Text
                 color={color}

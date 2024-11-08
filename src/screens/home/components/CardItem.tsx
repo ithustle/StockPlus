@@ -1,11 +1,27 @@
-import { Box, HStack, Image, Spacer, Text, VStack } from "@chakra-ui/react";
+import { Box, HStack, Image, Spacer, Text } from "@chakra-ui/react";
 import { RiShoppingCart2Fill } from "react-icons/ri";
 import OptionButton from "./OptionButton";
 import InfoItem from "./InfoItem";
-import { text } from "stream/consumers";
 import { VscEdit, VscTrash } from "react-icons/vsc";
+import { Item } from "@/types/ItemType";
 
-export default function CardItem(): JSX.Element {
+interface CardItem {
+    data: Item
+    position: number
+    onDeleteItem: (position: number) => void
+}
+
+export default function CardItem(props: CardItem): JSX.Element {
+
+    const {
+        data,
+        position,
+        onDeleteItem
+    } = props
+
+    function handleOnDelete() {
+        onDeleteItem(position)
+    }
 
     return (
         <Box
@@ -16,21 +32,21 @@ export default function CardItem(): JSX.Element {
         >
             <HStack>
                 <Image
-                    src="https://static.vecteezy.com/system/resources/thumbnails/044/812/078/small/sleek-desktop-computer-icon-on-a-transparent-background-png.png"
+                    src={data.itemImage}
                     height={20}
                 />
                 <Text
                     fontWeight={'semibold'}
                     fontSize={'2xl'}
                 >
-                    Computador
+                    {data.itemName}
                 </Text>
             </HStack>
             <Text
                 color={'#777'}
                 my={4}
             >
-                Descrição
+                {data.itemDescription}
             </Text>
             <HStack
                 justifyContent={'space-between'}
@@ -38,15 +54,15 @@ export default function CardItem(): JSX.Element {
             >
                 <InfoItem
                     label="Preço"
-                    value="134.000"
+                    value={data.itemPrice.toString()}
                 />
                 <InfoItem
                     label="Marca"
-                    value="Lenovo"
+                    value={data.itemBrand}
                 />
                 <InfoItem
                     label="Processador"
-                    value="i9"
+                    value={data.itemProcessor}
                 />
             </HStack>
             <HStack
@@ -55,6 +71,7 @@ export default function CardItem(): JSX.Element {
                 <OptionButton
                     color="#8133E0"
                     text={"Vender"}
+                    onClick={() => null}
                     icon={<RiShoppingCart2Fill
                         style={{
                             height: 20,
@@ -71,6 +88,7 @@ export default function CardItem(): JSX.Element {
                     <OptionButton
                         color="black"
                         text={"Editar"}
+                        onClick={() => null}
                         icon={<VscEdit
                             style={{
                                 height: 20,
@@ -79,8 +97,9 @@ export default function CardItem(): JSX.Element {
                         />}
                     />
                     <OptionButton
-                        text={"Vender"}
+                        text={"Apagar"}
                         color="red"
+                        onClick={handleOnDelete}
                         icon={<VscTrash
                             style={{
                                 height: 20,
