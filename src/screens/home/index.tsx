@@ -1,7 +1,8 @@
 import { For, Heading, HStack, Stack, useDisclosure } from "@chakra-ui/react";
-import CardItem from "./components/CardItem";
+//import CardItem from "./components/CardItem";
 import FloatButton from "./components/FloatButton";
 import DialogItem from "../Item/DialogItemScreen";
+import CardItemHtml from "./components/CardItemHtml";
 
 export default function HomeScreen(): JSX.Element {
 
@@ -19,7 +20,7 @@ export default function HomeScreen(): JSX.Element {
             >
                 Gestor de Stock e vendas
             </Heading>
-            <FloatButton 
+            <FloatButton
                 onOpenDialog={onOpen}
             />
 
@@ -28,15 +29,18 @@ export default function HomeScreen(): JSX.Element {
                 gap={8}
             >
                 <For each={arrayItems}>
-                    {(item) => (
-                        <CardItem
+                    {(_) => (
+                        <>
+                            {/* <CardItem
                             key={item}
-                        />
+                        /> */}
+                            <CardItemHtml />
+                        </>
                     )}
                 </For>
 
             </HStack>
-            <DialogItem 
+            <DialogItem
                 open={open}
                 onOpenChange={onClose}
             />

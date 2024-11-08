@@ -1,10 +1,10 @@
-import HomeScreen from './screens/home'
+//import HomeScreen from './screens/home'
 
 function App() {
 
 	return (
 		<ChakraProvider value={system}>
-			<HomeScreen />
+			<OcrHome />
 		</ChakraProvider>
 	)
 }
@@ -12,6 +12,7 @@ function App() {
 export default App
 
 import { ChakraProvider, createSystem, defaultConfig } from "@chakra-ui/react"
+import OcrHome from './screens/ocr'
 
 export const system = createSystem(defaultConfig, {
 	globalCss: {

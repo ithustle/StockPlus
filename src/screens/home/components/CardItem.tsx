@@ -1,8 +1,7 @@
-import { Box, HStack, Image, Spacer, Text, VStack } from "@chakra-ui/react";
+import { Box, HStack, Image, Spacer, Text } from "@chakra-ui/react";
 import { RiShoppingCart2Fill } from "react-icons/ri";
 import OptionButton from "./OptionButton";
 import InfoItem from "./InfoItem";
-import { text } from "stream/consumers";
 import { VscEdit, VscTrash } from "react-icons/vsc";
 
 export default function CardItem(): JSX.Element {

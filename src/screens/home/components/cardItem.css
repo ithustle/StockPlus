@@ -1,0 +1,37 @@
+.container {
+    background-color: white;
+    padding: 20px;
+    width: 380px;
+    border-radius: 4px;
+}
+
+.alignedHorizontal {
+    display: flex;
+    align-items: center;
+}
+
+.alignedHorizontal p {
+    padding-left: 10px;
+}
+
+#description {
+    color: #7D7C7C;
+    margin: 16px 0 16px 0;
+}
+
+.sectionInfo h4 {
+    font-weight: 700;
+    font-size: 14pt;
+}
+
+section.alignedHorizontal {
+    justify-content: space-between;
+}
+
+.sectionOptions {
+    margin: 20px 0 5px;
+}
+
+.sectionOptions section div {
+    padding: 0 0 0 16px;
+}
